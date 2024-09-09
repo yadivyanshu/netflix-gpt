@@ -17,3 +17,6 @@
         - Title & Description
         - MovieSuggestions
             - MovieLists * N
+    - NetflixGPT
+        - Search Bar
+        - Movie Suggestions
