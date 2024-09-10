@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
+import { Validate } from "../utils/Validate";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
+
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+  };
+
+  const handleButtonClick = () => {
+    // validate the form
+    const message = Validate(
+      email?.current?.value,
+      password?.current?.value,
+      name?.current?.value
+    );
+
+    setErrorMsg(message);
   };
 
   return (
@@ -26,22 +43,29 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700"
           />
         )}
         <input
+          ref={email}
           type="text"
           placeholder="Email address"
           className="p-4 my-4 w-full bg-gray-700"
         />
         <input
+          ref={password}
           type="password"
           placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700"
         />
-        <button className="p-4 my-6 w-full bg-red-700 rounded-lg">
+        {errorMsg && <p className="text-red-600">{errorMsg}</p>}
+        <button
+          onClick={handleButtonClick}
+          className="p-4 my-6 w-full bg-red-700 rounded-lg"
+        >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
         <p className="py-4 cursor-pointer" onClick={toggleSignInForm}>
