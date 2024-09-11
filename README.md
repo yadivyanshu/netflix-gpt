@@ -10,6 +10,8 @@
 - Form validation
 - Firebase setup and deployment
 - Authentication
+- Implemented Signout feature
+  - Update displayName and profile icon
 
 ## Features
 
