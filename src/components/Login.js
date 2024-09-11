@@ -9,6 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVTAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -45,12 +46,10 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://avatars.githubusercontent.com/u/90229409?s=400&u=30bec925f0e2a8cc88f5c9726f95097eac944c7b&v=4",
+            photoURL: USER_AVTAR,
           })
             .then(() => {
               // Profile updated!
-              console.log(user);
               const { uid, email, displayName, photoURL } = user;
               dispatch(
                 addUser({

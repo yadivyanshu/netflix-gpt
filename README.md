@@ -12,6 +12,10 @@
 - Authentication
 - Implemented Signout feature
   - Update displayName and profile icon
+- Fixed the navigation bug
+- Unsubscribed to onAuthStateChanged callback
+- Register on TMDB
+- Get data for Now Playing movies
 
 ## Features
 
