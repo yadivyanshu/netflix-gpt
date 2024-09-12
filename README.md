@@ -27,6 +27,9 @@
 - Build Secondary component
 - Build movie list
 - Build movie card
+- GPT Search Page
+- GPT Search Bar
+- Multi-language Feature in Gpt page
 
 ## Features
 
