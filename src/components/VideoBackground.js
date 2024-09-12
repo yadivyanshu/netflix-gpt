@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import useMovieTrailer from "../hooks/useMovieTrailer";
 
@@ -8,6 +7,7 @@ const VideoBackground = ({ movieId }) => {
 
   return (
     <div className="w-screen">
+      {/* <div className="-mt-24 relative z-20">  use this to hide video title */}
       <iframe
         className="w-screen aspect-video"
         src={
@@ -19,6 +19,7 @@ const VideoBackground = ({ movieId }) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       ></iframe>
     </div>
+    // </div>
   );
 };
 
