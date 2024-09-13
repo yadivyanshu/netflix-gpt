@@ -1,5 +1,7 @@
 # netflix-gpt
 
+1. Use VPN to make tmdb api's work.
+
 ## Steps
 
 - Create the basic setup using command "npx create-react-app netflix-gpt"
@@ -29,7 +31,14 @@
 - Build movie card
 - GPT Search Page
 - GPT Search Bar
-- Multi-language Feature in Gpt page
+- Multi-language Feature in Gpt page ⭐
+- Setup Open AI Api call function
+- Gpt Search API Call
+- Fetched gptMoviesSuggestions from TMDB
+- Added TMDB data into gptSlice store
+- Resused Movie List component to make movie suggestion container
+- Added .env file
+- Memoization
 
 ## Features
 
