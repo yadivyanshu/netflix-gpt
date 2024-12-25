@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
-import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
+import {generateMoviesList} from "../utils/generate";
 
 const GptSearchBar = () => {
   const changedLanguage = useSelector((store) => store.config?.lang);
@@ -24,18 +24,8 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
-    const gptQuery =
-      "Act as a Movie recommendation system and suggest some non-adult movies for the query" +
-      searchText.current.value +
-      ". Only give me name of maximum 5 movies, comma separated like the example result given ahead. Result Example: Amar, D15, Don, Jawan, Thangalan";
-
-    // Make an API call to openAI and get movie result
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
-    // console.log(gptResults.choices);  NOT WORKING due to api rate limit
+    const gptResults = await generateMoviesList(searchText.current.value);
+    
     if (!gptResults.choices) {
       return "ERROR";
     }
